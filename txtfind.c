@@ -37,27 +37,19 @@ return count;
 }
 
 int substring(char *str1, char *str2){
+    int len2 = strlen(str2);
     int len1 = strlen(str1);
-    int len2 = strlen(str2);  
-    int i=0,j=0,counter=0;
-while(*(str1+i)!='\0' && *(str2+j)!='\0'){           
-        if(*(str1+i)==*(str2+j)){
-i++;
-j++;
-counter++;
+
+    for (int i = 0; i <= len1-len2; i++){
+    int j;
+        for (j=0; j<len2; j++)
+        if (*(str1+i+j)!=*(str2+j))
+        break;
+        
+        if(j==len2)
+        return 1;
         }
-        else{
-          i++;
-          j=0; 
-          counter=0; 
-        }
-}
-if(counter==0){
-      return 0; 
-}
-else{
-    return 1;
-}    
+        return 0;
     }
 
     int similar(char *s, char *t, int n){
@@ -89,7 +81,6 @@ return 0;
     void print_lines(char *str){
         char s[LINE];
         while(getLine(s)!=EOF){
-getLine(s);
 if(substring(s, str)){
     printf("%s\n", s);
 }
@@ -99,7 +90,7 @@ if(substring(s, str)){
     void print_similar_words(char *str){
 char w[30];
 while (getword(w)!=EOF){
-    getword(w);
+    
 if (similar(w,str,1)){
     printf("%s\n", w);
 }

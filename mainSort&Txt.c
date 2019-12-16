@@ -28,17 +28,20 @@ int main(){
 //     printf("%d,", *(arrays+i));
 // }
 
-char aa[] = "omer";
-char bb[] = "omer";
-char cc[] = "o";
-char dd[] = "ksoa";
-char e1[] = "swsystems";
-char e2[] = "ssysems";
+// char aa[] = "omer";
+// char bb[] = "omer";
+// char cc[] = "o";
+// char dd[] = "ksoa";
+// char e1[] = "swsystems";
+// char e2[] = "ssysems";
+// char h[] = "cat";
+// char h1[] = "cats";
 
-int a1 = substring(aa, bb);
-int a2 = substring(aa, cc);
-int a3 = substring(e1, e2);
-printf("\n %d, %d, %d\n", a1, a2, a3);
+// int a1 = substring(aa, bb);
+// int a2 = substring(aa, cc);
+// int a3 = substring(e1, e2);
+// int a4 = substring(h1,h);
+// printf("\n %d, %d, %d %d\n", a1, a2, a3, a4);
 
 // int a4 = similar(e1, e2, 2);
 // int a5 = similar(aa,bb,0);
@@ -68,14 +71,16 @@ printf("\n %d, %d, %d\n", a1, a2, a3);
 // printf("%s\n",l);
 // getLine(l);
 // printf("%s\n",l);
-// char str[WORD];
-// getword(str);
-// char op;
-// scanf(" %c", &op);
-// if(op == 'a'){
-// print_lines(str);
-// }
-// if (op == 'b'){
-// print_similar_words(str);
-// }
+
+
+char str[WORD];
+getword(str);
+char op;s
+scanf(" %c", &op);
+if(op == 'a'){
+print_lines(str);
+}
+if (op == 'b'){
+print_similar_words(str);
+}
 }
