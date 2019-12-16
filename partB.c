@@ -8,14 +8,15 @@ int getLine(char s[])
 {
     int count=0;
     char ch = getchar();
-    while (ch!='/n' && ch!='/0'){
+    while (ch!='\n' && ch!=EOF){
     *(s+count) = ch;
 count++;
 ch = getchar();
 
     }
-    if(ch=='/0'){
-        return -1;
+    s[count]='\0';
+    if(ch==EOF){
+        return EOF;
     }
    return count; 
 }
@@ -23,43 +24,48 @@ ch = getchar();
 int getword(char w[]){
 int count=0;
 char ch = getchar();
-while(ch!='/n' && ch!='/t' && ch!=' ' && ch!='/0'){
+while(ch!='\n' && ch!='\t' && ch!=' ' && ch!=EOF){
    *(w+count) = ch;
     ch=getchar();
     count++;   
 }
- if(ch=='/0'){
-        return -1;
+w[count] = '\0';
+ if(ch==EOF){
+        return EOF;
     }
 return count;
 }
 
 int substring(char *str1, char *str2){
     int len1 = strlen(str1);
-    int len2 = strlen(str2);
-    
-for (int i = 0; i <= len1-len2; i++){
-
-for (int j=0; j<len2; j++){
-if (*(str1+i+j)!=*(str2+j))
-{
- break;
+    int len2 = strlen(str2);  
+    int i=0,j=0,counter=0;
+while(*(str1+i)!='\0' && *(str2+j)!='\0'){           
+        if(*(str1+i)==*(str2+j)){
+i++;
+j++;
+counter++;
+        }
+        else{
+          i++;
+          j=0; 
+          counter=0; 
+        }
 }
-if ((j==len2)==0){
+if(counter==0){
+      return 0; 
+}
+else{
     return 1;
-}  
 }    
-}            
-        
-      return 0;      
     }
 
     int similar(char *s, char *t, int n){
         int len1 = strlen(s);
         int len2 = strlen(t);
 int i=0,j=0;
- while(*(s+i)!='\0' && *(t+j)!='\0'){
-if(*(s+i)==*(t+j)){
+ while(*(s+i)!='\0' || *(t+j)!='\0'){
+    if(*(s+i)==*(t+j)){
     i++;
     j++;
 }
@@ -80,28 +86,29 @@ return 0;
     
     }  
 
-    void print_line(char* str){
+    void print_lines(char *str){
         char s[LINE];
-        while(getword(s)!=-1){
+        while(getLine(s)!=EOF){
 getLine(s);
 if(substring(s, str)){
-    printf("&s\n", s);
+    printf("%s\n", s);
 }
 }
     }
 
     void print_similar_words(char *str){
 char w[30];
-while (getword(w)!=-1){
+while (getword(w)!=EOF){
     getword(w);
 if (similar(w,str,1)){
     printf("%s\n", w);
 }
+else{
 if (similar(w,str,0)){
     printf("%s\n", w);
 }
 }
-
+}
 }
 
      
