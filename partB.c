@@ -1,24 +1,36 @@
 #include <string.h>
 #include <stdio.h>
 #include "interface.h"
+#define LINE 256
+#define WORD 30
 
 int getLine(char s[])
 {
-    int i=0,count=0;
-    while (*(s+i)!='\n' && *(s+i)!='\0')
-    {
+    int count=0;
+    char ch = getchar();
+    while (ch!='/n' && ch!='/0'){
+    *(s+count) = ch;
 count++;
-i++;
+ch = getchar();
+
+    }
+    if(ch=='/0'){
+        return -1;
     }
    return count; 
 }
 
 int getword(char w[]){
-int i=0,count=0;
-while(*(w+i)!='\n' && *(w+i)!='\t' && *(w+i)!=' ' && *(w+i)!='\0'){
-    count++;
-    i++;
+int count=0;
+char ch = getchar();
+while(ch!='/n' && ch!='/t' && ch!=' ' && ch!='/0'){
+   *(w+count) = ch;
+    ch=getchar();
+    count++;   
 }
+ if(ch=='/0'){
+        return -1;
+    }
 return count;
 }
 
@@ -66,7 +78,33 @@ else{
 return 0;
 }
     
-    }      
+    }  
+
+    void print_line(char* str){
+        char s[LINE];
+        while(getword(s)!=-1){
+getLine(s);
+if(substring(s, str)){
+    printf("&s\n", s);
+}
+}
+    }
+
+    void print_similar_words(char *str){
+char w[30];
+while (getword(w)!=-1){
+    getword(w);
+if (similar(w,str,1)){
+    printf("%s\n", w);
+}
+if (similar(w,str,0)){
+    printf("%s\n", w);
+}
+}
+
+}
+
+     
         
     
     
