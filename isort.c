@@ -1,3 +1,5 @@
+#include "intersort.h"
+
 void shift_elements(int* arr, int i){
 
 for (int j = i; j >0; j--){

@@ -1,6 +1,6 @@
 #include <string.h>
 #include <stdio.h>
-#include "interface.h"
+#include "intertxt.h"
 #define LINE 256
 #define WORD 30
 
@@ -53,8 +53,6 @@ int substring(char *str1, char *str2){
     }
 
     int similar(char *s, char *t, int n){
-        int len1 = strlen(s);
-        int len2 = strlen(t);
 int i=0,j=0;
  while(*(s+i)!='\0' || *(t+j)!='\0'){
     if(*(s+i)==*(t+j)){

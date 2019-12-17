@@ -1,5 +1,3 @@
-void shift_elements(int* arr, int i);
-void insertion_sort(int* arr, int len);
 int getLine(char s[]);
 int getword(char w[]);
 int substring(char *str1, char *str2);
