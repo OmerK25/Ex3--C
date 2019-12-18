@@ -1,14 +1,11 @@
 #include "intersort.h"
 #include <stdio.h>
 #include <string.h>
-#define LINE 256
-#define WORD 30
-#define LENGTH 50
 
 int main(){
 int arr[LINE];
 int a=0;
-for (int i=0; i<50; i++){
+for (int i=0; i<LENGTH; i++){
 scanf(" %d", &a);
 *(arr+i) = a;  
 }

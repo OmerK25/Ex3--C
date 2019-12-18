@@ -1,8 +1,6 @@
 #include <string.h>
 #include <stdio.h>
 #include "intertxt.h"
-#define LINE 256
-#define WORD 30
 
 int getLine(char s[])
 {

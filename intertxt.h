@@ -1,3 +1,7 @@
+#define LINE 256
+#define WORD 30
+#define LENGTH 50
+
 int getLine(char s[]);
 int getword(char w[]);
 int substring(char *str1, char *str2);
